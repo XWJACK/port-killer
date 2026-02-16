@@ -87,6 +87,8 @@ final class UpdateManager {
      * Skips initialization when not running from an .app bundle (development mode).
      */
     private func ensureInitialized() {
+        return
+
         guard !isInitialized else { return }
         isInitialized = true
 

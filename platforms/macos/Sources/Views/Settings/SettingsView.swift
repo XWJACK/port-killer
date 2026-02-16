@@ -78,79 +78,79 @@ struct SettingsView: View {
                             }
                         }
 
-                        SettingsDivider()
-
-                        SettingsToggleRow(
-                            title: "Check automatically",
-                            subtitle: "Look for updates in the background",
-                            isOn: Binding(
-                                get: { updateManager.automaticallyChecksForUpdates },
-                                set: { updateManager.automaticallyChecksForUpdates = $0 }
-                            )
-                        )
-
-                        SettingsDivider()
-
-                        SettingsToggleRow(
-                            title: "Download automatically",
-                            subtitle: "Download updates when available",
-                            isOn: Binding(
-                                get: { updateManager.automaticallyDownloadsUpdates },
-                                set: { updateManager.automaticallyDownloadsUpdates = $0 }
-                            )
-                        )
+//                        SettingsDivider()
+//
+//                        SettingsToggleRow(
+//                            title: "Check automatically",
+//                            subtitle: "Look for updates in the background",
+//                            isOn: Binding(
+//                                get: { updateManager.automaticallyChecksForUpdates },
+//                                set: { updateManager.automaticallyChecksForUpdates = $0 }
+//                            )
+//                        )
+//
+//                        SettingsDivider()
+//
+//                        SettingsToggleRow(
+//                            title: "Download automatically",
+//                            subtitle: "Download updates when available",
+//                            isOn: Binding(
+//                                get: { updateManager.automaticallyDownloadsUpdates },
+//                                set: { updateManager.automaticallyDownloadsUpdates = $0 }
+//                            )
+//                        )
                     }
                 }
 
-                // MARK: - Sponsors
-                SettingsGroup("Sponsors", icon: "heart.fill") {
-                    VStack(spacing: 0) {
-                        SettingsRowContainer {
-                            HStack {
-                                VStack(alignment: .leading, spacing: 2) {
-                                    Text("Show Sponsors Window")
-                                        .fontWeight(.medium)
-                                    Text("How often to display the sponsors window")
-                                        .font(.caption)
-                                        .foregroundStyle(.secondary)
-                                }
+                // // MARK: - Sponsors
+                // SettingsGroup("Sponsors", icon: "heart.fill") {
+                //     VStack(spacing: 0) {
+                //         SettingsRowContainer {
+                //             HStack {
+                //                 VStack(alignment: .leading, spacing: 2) {
+                //                     Text("Show Sponsors Window")
+                //                         .fontWeight(.medium)
+                //                     Text("How often to display the sponsors window")
+                //                         .font(.caption)
+                //                         .foregroundStyle(.secondary)
+                //                 }
 
-                                Spacer()
+                //                 Spacer()
 
-                                Picker("", selection: $sponsorDisplayInterval) {
-                                    ForEach(SponsorDisplayInterval.allCases, id: \.self) { interval in
-                                        Text(interval.localizedName).tag(interval)
-                                    }
-                                }
-                                .frame(width: 130)
-                                .onChange(of: sponsorDisplayInterval) { _, newValue in
-                                    Defaults[.sponsorDisplayInterval] = newValue
-                                }
-                            }
-                        }
+                //                 Picker("", selection: $sponsorDisplayInterval) {
+                //                     ForEach(SponsorDisplayInterval.allCases, id: \.self) { interval in
+                //                         Text(interval.localizedName).tag(interval)
+                //                     }
+                //                 }
+                //                 .frame(width: 130)
+                //                 .onChange(of: sponsorDisplayInterval) { _, newValue in
+                //                     Defaults[.sponsorDisplayInterval] = newValue
+                //                 }
+                //             }
+                //         }
 
-                        SettingsDivider()
+                //         SettingsDivider()
 
-                        SettingsRowContainer {
-                            HStack {
-                                VStack(alignment: .leading, spacing: 2) {
-                                    Text("View Sponsors")
-                                        .fontWeight(.medium)
-                                    Text("See all current supporters")
-                                        .font(.caption)
-                                        .foregroundStyle(.secondary)
-                                }
+                //         SettingsRowContainer {
+                //             HStack {
+                //                 VStack(alignment: .leading, spacing: 2) {
+                //                     Text("View Sponsors")
+                //                         .fontWeight(.medium)
+                //                     Text("See all current supporters")
+                //                         .font(.caption)
+                //                         .foregroundStyle(.secondary)
+                //                 }
 
-                                Spacer()
+                //                 Spacer()
 
-                                Button("Show Window") {
-                                    sponsorManager.showSponsorsWindow()
-                                    openWindow(id: "sponsors")
-                                }
-                            }
-                        }
-                    }
-                }
+                //                 Button("Show Window") {
+                //                     sponsorManager.showSponsorsWindow()
+                //                     openWindow(id: "sponsors")
+                //                 }
+                //             }
+                //         }
+                //     }
+                // }
 
                 // MARK: - About
                 SettingsGroup("About", icon: "info.circle.fill") {
@@ -172,8 +172,8 @@ struct SettingsView: View {
 
                         SettingsLinkRow(title: "GitHub", subtitle: "Star the project", icon: "star.fill", url: AppInfo.githubRepo)
                         SettingsDivider()
-                        SettingsLinkRow(title: "Sponsor", subtitle: "Support development", icon: "heart.fill", url: AppInfo.githubSponsors)
-                        SettingsDivider()
+//                        SettingsLinkRow(title: "Sponsor", subtitle: "Support development", icon: "heart.fill", url: AppInfo.githubSponsors)
+//                        SettingsDivider()
                         SettingsLinkRow(title: "Report Issue", subtitle: "Found a bug?", icon: "ladybug.fill", url: AppInfo.githubIssues)
                         SettingsDivider()
                         SettingsLinkRow(title: "Twitter/X", subtitle: "@productdevbook", icon: "at", url: AppInfo.twitterURL)

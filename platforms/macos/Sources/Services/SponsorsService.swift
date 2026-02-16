@@ -2,7 +2,7 @@ import Foundation
 
 /// Service for fetching sponsors from static JSON
 actor SponsorsService {
-    private let sponsorsURL = URL(string: "https://raw.githubusercontent.com/productdevbook/static/main/sponsors.json")!
+//    private let sponsorsURL = URL(string: "https://raw.githubusercontent.com/productdevbook/static/main/sponsors.json")!
     private let contributorsURL = URL(string: "https://api.github.com/repos/productdevbook/port-killer/contributors")!
 
     enum SponsorsError: Error, LocalizedError, Sendable {
@@ -24,18 +24,19 @@ actor SponsorsService {
 
     /// Fetch sponsors from static JSON
     func fetchSponsors() async throws -> [Sponsor] {
-        let (data, response) = try await URLSession.shared.data(from: sponsorsURL)
-
-        guard let httpResponse = response as? HTTPURLResponse,
-              (200...299).contains(httpResponse.statusCode) else {
-            throw SponsorsError.invalidResponse
-        }
-
-        do {
-            return try JSONDecoder().decode([Sponsor].self, from: data)
-        } catch {
-            throw SponsorsError.decodingError(error.localizedDescription)
-        }
+        return []
+//        let (data, response) = try await URLSession.shared.data(from: sponsorsURL)
+//
+//        guard let httpResponse = response as? HTTPURLResponse,
+//              (200...299).contains(httpResponse.statusCode) else {
+//            throw SponsorsError.invalidResponse
+//        }
+//
+//        do {
+//            return try JSONDecoder().decode([Sponsor].self, from: data)
+//        } catch {
+//            throw SponsorsError.decodingError(error.localizedDescription)
+//        }
     }
 
     /// Fetch contributors from GitHub API
